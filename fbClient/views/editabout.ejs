@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/angular/editabout.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/homepage.css">
+      <link rel="stylesheet" type="text/css" href="/css/editAbout.css">
+      <link rel="stylesheet" type="text/css" href="/css/homepg.css">
+      
+       <link rel='shortcut icon' href='http://physics.soc.srcf.net/wiki/images/9/90/Fb_favicon.png' type='image/x-icon'/ >
+   </head>
+   <body ng-app="facebook" data-ng-controller="aboutController" class="body">
+      <div class="container-fluid">
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#"><font face="arial" size="5"><b>facebook</b></font></a>
+                  <form class="navbar-form navbar-left">
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" id="searchbox" data-ng-model="search" style="margin-left:135px;">
+                        <script>
+                           $("#searchbox").keyup(function(event){
+                           if(event.keyCode == 13){
+                           searchuser();
+                           }
+                           });
+                        </script>
+                        <button type="submit" class="btn btn-default" data-ng-click="searchuser();" data-ng-show="false">Submit</button>
+                        <div id="display"></div>
+                     </div>
+                     <!--<button type="submit" class="btn btn-default">Submit</button>  --> 
+                  </form>
+               </div>
+               <div>
+                  <ul class="nav navbar-nav navbar-right ">
+                     <li><a href="/homepage"><span class="glyphicon glyphicon-home nowhite"></span class="navbartitles">&nbsp;Home</a></li>
+                     <li><a href="/friends"><span class="glyphicon glyphicon-user nowhite"></span class="navbartitles">&nbsp;Friends</a></li>
+                     <li><a href="/signout"><span class="glyphicon glyphicon-log-in nowhite"></span class="navbartitles">&nbsp;Sign Out</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <div class="col-md-2" style="border-radius:5px;margin-top:10px;">
+            <div style="border-radius:5px;" class="sidebar">
+               <br><div style="padding:18px;">
+               <a class="navigationbarlinks" href="/about">About</a><br><br>
+               <a class="navigationbarlinks" href="/editAbout">About</a><br><br>
+               <a class="navigationbarlinks" href="/friends">Friends</a><br><br>
+               <a class="navigationbarlinks" href="/redirectToEditAbout">Interest</a><br><br>
+               <a class="navigationbarlinks" href="/groups">Groups</a><br>
+               </div>
+            </div>
+         </div>
+          <div class="col-md-8" style="border-radius:5px;">
+            <div style="border-radius:5px;padding:18px;" class="newsfeed_background">
+               
+               <div class="newsfeed_container">
+                  <form class="edit_about_form">
+                     <span class="aboutHeader">Overview</span><br>
+                     <br>
+                     <div class="form-group">
+                        <input type="name" style="width:370px;" class="form-control" id="name" placeholder="Name" data-ng-model="name">
+                     </div>
+                     <div class="form-group">
+                        <input type="dob" style="width:370px;" class="form-control" id="dob" placeholder="Date of birth" data-ng-model="dob">
+                     </div>
+                     <div class="form-group">
+                        <input type="hometown" style="width:370px;" class="form-control" id="hometown" placeholder="Hometown" data-ng-model="hometown">
+                     </div>
+                     <div class="form-group">
+                        <input type="currentcity" style="width:370px;" class="form-control" id="currentcity" placeholder="Current City" data-ng-model="currentCity">
+                     </div>
+                     <br>
+                     
+                     <span class="aboutHeader">Work & Education</span><br>
+                     <br>
+                     <div class="form-group">
+                        <input type="school" style="width:370px;" class="form-control" id="school" placeholder="School" data-ng-model="school">
+                     </div>
+                     <div class="form-group">
+                        <input type="undergrad" style="width:370px;" class="form-control" id="undergrad" placeholder="College" data-ng-model="undergradCollege">
+                     </div>
+                     <div class="form-group">
+                        <input type="graduate" style="width:370px;" class="form-control" id="graduate" placeholder="Grad college" data-ng-model="gradCollege">
+                     </div>
+                     <br>
+         
+                     <span class="aboutHeader">Contact Information</span>
+                     <br>
+                     <div class="form-group">
+                        <input type="email" style="width:370px;" class="form-control" id="email" placeholder="Email" data-ng-model="email">
+                     </div>
+                     <div class="form-group">
+                        <input type="phone" style="width:370px;" class="form-control" id="phone" placeholder="Phone" data-ng-model="phoneNumber">
+                     </div>
+                     <br>
+                     
+                     <span class="aboutHeader">Life Events</span>
+                    <br>
+                     <div class="form-group">
+                        <input type="relationship" class="form-control" style="width:370px;" id="relationship" placeholder="single/commited/complicated" data-ng-model="relationshipStatus">
+                     </div><br>
+                     <button type="submit" class="btn btn-default" data-ng-click="submit();">Submit</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+        <div class="col-md-2" style="border-radius:5px;margin-top:10px;">
+         <div style="border-radius:5px;padding:18px;background-color: #E9EAED;" class="sidebar">
+               
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

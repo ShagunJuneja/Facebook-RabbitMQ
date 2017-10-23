@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/homepg.css">
+      <script type="text/javascript" src="/angular/homepage.js"></script>
+       <link rel='shortcut icon' href='http://physics.soc.srcf.net/wiki/images/9/90/Fb_favicon.png' type='image/x-icon'/ >
+   
+   </head>
+   <body ng-app="facebook" ng-controller="homepage" class="body">
+      <div class="container-fluid">
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#"><font face="arial" size="5"><b>facebook</b></font></a>
+                  <form class="navbar-form navbar-left" role="search" style="margin-left:215px;">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search this site" ng-model="search">
+                    <span class="input-group-btn"> 
+                        <button type="submit" class="btn btn-default" style="height:34px;" ng-click="searchuser();">
+                        <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+               </div>
+               <div>
+                  <ul class="nav navbar-nav navbar-right ">
+                     <li><a href="/homepage"><span class="glyphicon glyphicon-home nowhite"></span class="navbartitles">&nbsp;Home</a></li>
+                     <li><a href="/friends"><span class="glyphicon glyphicon-user nowhite"></span class="navbartitles">&nbsp;Friends</a></li>
+                     <li><a href="/signout"><span class="glyphicon glyphicon-log-in nowhite"></span class="navbartitles">&nbsp;Sign Out</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <div class="col-md-2" style="border-radius:5px;">
+            <div style="border-radius:5px; padding:50px;" class="sidebar">
+               <br><div style="padding:18px;">
+               
+               <a class="navigationbarlinks" href="/editAbout">About</a><br><br>
+               
+               <a class="navigationbarlinks" href="/redirectToEditAbout">Interest</a><br><br>
+               <a class="navigationbarlinks" href="/groups">Groups</a><br>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-8" style="border-radius:5px;margin-top:70px;">
+            <div style="border-radius:5px;padding:18px;" class="newsfeed_background">
+               <div class="row">
+                  <div class="col-md-12" >
+                     <form class="facebook-share-box" name="statusForm" >
+                        <div class="share">
+                           <div class="panel panel-default" style="border-radius:7px;" >
+                              <div class="panel-heading"><b>Update your Status!</b></div>
+                              <div class="panel-body">
+                                 <div class="">
+                                    <textarea name="message" cols="40" rows="10" id="status_message" class="form-control message" style="height: 62px; overflow: hidden;" placeholder="What's on your mind ?" ng-model="currentStatus">{{newStatus}}</textarea> 
+                                 </div>
+                              </div>
+                              <div class="panel-footer" style="height:45px;">
+                                 <div class="row">
+                                    <div class="col-md-12 col-md-offset-10">
+                                       <div class="form-group">                                 
+                                          <input type="submit" name="submit" value="Post" class="uibutton confirm facebookButtonSmall" ng-click="postStatus()">                               
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                  </form>
+               </div>
+            </div>
+            <br>
+            <table class="table">
+                     <tbody cellspacing="55">
+                        <tr ng-repeat="status in statuses.slice().reverse()">
+                           <td style="padding-left:5%;">
+                              <span class="facebookFont"><b>{{ status.username }}</b><br><br> {{ status.status }}</span>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+            
+         </div>
+         
+         
+         
+      </div>
+      <div class="col-md-2" style="border-radius:5px;margin-top:10px;">
+         <div style="border-radius:5px;padding:18px;background-color: #E9EAED;" class="sidebar">
+            <br>
+         </div>
+      </div>
+      </div>
+   </body>
+</html>

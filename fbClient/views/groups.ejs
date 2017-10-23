@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/homepg.css">
+      <link rel="stylesheet" type="text/css" href="/css/fb-buttons.css">
+      <script type="text/javascript" src="/angular/groups.js"></script>
+   </head>
+   <body ng-app="facebook" ng-controller="groupsController" id="groupsController class="body" style="background-color: #E9EAED;">
+     <div class="container-fluid">
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#"><font face="arial" size="5"><b>facebook</b></font></a>
+                  <form class="navbar-form navbar-left">
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" id="searchbox" data-ng-model="search" style="margin-left:135px;">
+                        <script>
+                           $("#searchbox").keyup(function(event){
+                           if(event.keyCode == 13){
+                           searchuser();
+                           }
+                           });
+                        </script>
+                        <button type="submit" class="btn btn-default" data-ng-click="searchuser();" data-ng-show="false">Submit</button>
+                        <div id="display"></div>
+                     </div>
+                     <!--<button type="submit" class="btn btn-default">Submit</button>  --> 
+                  </form>
+               </div>
+               <div>
+                   <ul class="nav navbar-nav navbar-right ">
+                     <li><a href="/homepage"><span class="glyphicon glyphicon-home nowhite"></span class="navbartitles">&nbsp;Home</a></li>
+                     <li><a href="/friends"><span class="glyphicon glyphicon-user nowhite"></span class="navbartitles">&nbsp;Friends</a></li>
+                     <li><a href="/signout"><span class="glyphicon glyphicon-log-in nowhite"></span class="navbartitles">&nbsp;Sign Out</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+        <div class="col-md-2" style="border-radius:5px;">
+            <div style="border-radius:5px;" class="sidebar">
+               <br><div style="padding:18px;">
+               
+               <a class="navigationbarlinks" href="/editAbout">About</a><br><br>
+               
+               <a class="navigationbarlinks" href="/redirectToEditAbout">Interest</a><br><br>
+               <a class="navigationbarlinks" href="/groups">Groups</a><br>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-8" style="border-radius:5px;">
+            <div style="border-radius:5px;padding:18px;" class="newsfeed_background">
+               
+               <div>
+                  <table class="table">
+                     <tbody>
+                        <tr ng-repeat="group in groups">
+                           <td style="padding-left:5%;">
+                              <a class="facebookFont" href="#myModal" data-toggle="modal" data-target="#myModal" ng-click="getGroupMembers(group.groupname,group.id)"> {{ group.groupname }}</a>
+                              <button style="float:right;" ng-click="deleteGroup(group.groupname,group.createdby)" ng-show="group.hasEditRights">Delete Group</button>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <div>
+                  <button data-toggle="modal" data-target="#createGroupModal" ng-click="getFriends()">Create Group</button>
+               </div>
+               <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                     <!-- Modal content-->
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                           <h4 class="modal-title">{{ clickedGroup }}</h4>
+                        </div>
+                        <div class="modal-body">
+                           <table class="table">
+                              <tbody>
+                                 <tr ng-repeat="groupMember in groupMembers">
+                                    <td>
+                                       <span class="facebookFont"> {{ groupMember.username }}</span>
+                                       <button style="float:right;" ng-click="deleteMember(groupMember.groupname, groupMember.useremail)" ng-show="groupMember.hasEditRights">Delete</button> 
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="createGroupModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                     <!-- Modal content-->
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                           <h4 class="modal-title">Create Group</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div class="searchform">
+                              <input type="text" class="form-control" id="usr" placeholder="Enter group name" ng-model="toBeCreatedGroupName">
+                           </div>
+                           <table class="table">
+                              <tbody>
+                                 <tr ng-repeat="friend in friends">
+                                    <td>
+                                       <input type='checkbox' ng-model="friend.checked">
+                                       <span class="facebookFont"> {{ friend.friendname }}</span>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" ng-click="createGroup()" id="close">Create Group</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-2">
+            <div class="sidebar" style="background-color: #E9EAED;">
+               <br>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

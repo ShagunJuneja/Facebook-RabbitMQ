@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+      <link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/homepg.css">
+      <script type="text/javascript" src="/angular/searchpeople.js"></script>
+   </head>
+   <body ng-app="facebook" ng-controller="searchController" class="body">
+       <div class="container-fluid">
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#"><font face="arial" size="5"><b>facebook</b></font></a>
+                  <form class="navbar-form navbar-left">
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" id="searchbox" data-ng-model="search" style="margin-left:135px;">
+                        <script>
+                           $("#searchbox").keyup(function(event){
+                           if(event.keyCode == 13){
+                           searchuser();
+                           }
+                           });
+                        </script>
+                        <button type="submit" class="btn btn-default" data-ng-click="searchuser();" data-ng-show="false">Submit</button>
+                        <div id="display"></div>
+                     </div>
+                  </form>
+               </div>
+               <div>
+                  <ul class="nav navbar-nav navbar-right ">
+                     <li><a href="/homepage"><span class="glyphicon glyphicon-home"></span class="navbartitles">&nbsp;Home</a></li>
+                     <li><a href="/signout"><span class="glyphicon glyphicon-log-in"></span class="navbartitles">&nbsp;Sign Out</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+        <div class="col-md-2" style="border-radius:5px;margin-top:10px;">
+            <div style="border-radius:5px;" class="sidebar">
+               <br><div style="padding:18px;">
+               <a class="navigationbarlinks" href="/editAbout">About</a><br><br>
+               <a class="navigationbarlinks" href="/friends">Friends</a><br><br>
+               <a class="navigationbarlinks" href="/redirectToEditAbout">Interest</a><br><br>
+               <a class="navigationbarlinks" href="/groups">Groups</a><br>
+               </div>
+            </div>
+         </div>
+        <div class="col-md-8" style="border-radius:5px;margin-top:10px;">
+            <div style="border-radius:5px;padding:18px;" class="newsfeed_background">
+               <p><b>Users</b></p>
+               <table class="table">
+                  <tr ng-repeat="user in searchedUsers">
+                     <td>{{ user.friend1name }}</td>
+                     <td>
+                        <button ng-disabled="{{user.status==null ? 'false' : 
+       					            			user.status=='REQ' ? 'false' : 'true'}}" ng-click="buttonClick(user);">
+       					<span>{{user.status==null ? 'Add as Friend' : 
+       					            user.status=='RCV' ? 'Friend Request Sent' : 
+       					                user.status=='REQ' ? 'Accept Friend Request' : 'Friends'}}</span>
+   					    </button>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <div class="col-md-2" >
+            <div class="sidebar" style="background-color: #E9EAED;">
+               <br>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

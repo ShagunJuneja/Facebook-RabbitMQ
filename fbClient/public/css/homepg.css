@@ -1,0 +1,254 @@
+@CHARSET "ISO-8859-1";
+@import "fb-buttons.css";
+
+.sidebar {
+    background-color: #FFFFFF;
+    height:100vh;
+    font-family: tahoma;
+    font-size: 100%;
+}
+
+.facebookFont{
+	font-family: tahoma;
+    font-size: 100%;
+}
+
+.newsfeed_background {
+    background-color: #FFFFFF;
+    height:100vh;
+}
+
+.container
+{
+	background-color: #E9EAED;
+}
+
+.body
+{
+	background-color: #E9EAED;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+@font-face {
+    font-family: tahoma;
+    src: url(/fonts/Tahoma.ttf);
+}
+
+@font-face {
+    font-family: tahomaBold;
+    src: url(/fonts/tahomabd.ttf);
+}
+
+a.navigationbarlinks:link {
+  color: #3B5998;
+  background-color: transparent;
+/*   text-decoration: underline; */
+}
+
+a.navigationbarlinks:hover {
+  color: black ;
+}
+
+.searchinput{
+/*     margin-top: 20px; */
+}
+
+.friendrow{
+	margin-left:55%;
+}
+
+.searchform{
+    padding-top:5%;
+    padding-bottom:5%;
+    padding-left:5%;
+    padding-right:5%;
+    background-color: #FFFFFF;
+}
+
+.navbar-inverse { background-color: #31438F}
+.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #13178F}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #13178F}
+.dropdown-menu { background-color: #FFFFFF}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #3C53B0}
+.navbar-inverse { background-image: none; }
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
+.navbar-inverse { border-color: #080808}
+.navbar-inverse .navbar-brand { color: #FFFFFF}
+.navbar-inverse .navbar-brand:hover { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
+.dropdown-menu>li>a { color: #13178F}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
+
+.facebook-share-box {
+	border-radius:5px;
+    width: 100%;
+}
+.facebook-share-box .share {
+    -webkit-transition: 0.1s ease-out height;
+    -moz-transition: 0.1s ease-out height;
+    -ms-transition: 0.1s ease-out height;
+    -o-transition: 0.1s ease-out height;
+    transition: 0.1s ease-out height;
+    clear: both;
+    background: white;
+    border: 2px solid #dddddd;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.facebook-share-box .share .arrow {
+    background: url(arrow.png) no-repeat #dddddd;
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    left: 4px;
+    display: inline;
+    top: -10px;
+    -webkit-transition: 0.3s ease-out all;
+    -moz-transition: 0.3s ease-out all;
+    -ms-transition: 0.3s ease-out all;
+    -o-transition: 0.3s ease-out all;
+    transition: 0.3s ease-out all;
+}
+
+.facebook-share-box .post-types li a {
+    color: #085083;
+    text-decoration: none;
+}
+
+.facebook-share-box .post-types li a.active {
+    color: #404040;
+}
+
+.facebook-share-box .post-types {
+    padding-left: 5px;
+}
+
+.facebook-share-box ul {
+    list-style: none;
+    margin-bottom: 9px;
+}
+
+.facebook-share-box .post-types li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.message {
+    border-radius: 0;
+    border: none;
+}
+.panel {
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+}
+
+.privacy-dropdown {
+    width: 100px;
+}
+
+body {
+}
+.facebook-share-box {
+    width: 100%;
+}
+.facebook-share-box .share {
+    -webkit-transition: 0.1s ease-out height;
+    -moz-transition: 0.1s ease-out height;
+    -ms-transition: 0.1s ease-out height;
+    -o-transition: 0.1s ease-out height;
+    transition: 0.1s ease-out height;
+    clear: both;
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius:7px;
+    margin-bottom: 10px;
+    position: relative;
+}
+ 
+.facebook-share-box .share .arrow {
+    background: url(arrow.png) no-repeat #dddddd;
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    left: 4px;
+    display: inline;
+    top: -10px;
+    -webkit-transition: 0.3s ease-out all;
+    -moz-transition: 0.3s ease-out all;
+    -ms-transition: 0.3s ease-out all;
+    -o-transition: 0.3s ease-out all;
+    transition: 0.3s ease-out all;
+}
+ 
+.facebook-share-box .post-types li a {
+    color: #085083;
+    text-decoration: none;
+}
+ 
+.facebook-share-box .post-types li a.active {
+    color: #404040;
+}
+ 
+.facebook-share-box .post-types {
+    padding-left: 5px;
+}
+ 
+.facebook-share-box ul {
+    list-style: none;
+    margin-bottom: 9px;
+}
+ 
+.facebook-share-box .post-types li {
+    display: inline;
+    margin-right: 10px;
+}
+ 
+.message {
+    border-radius: 0;
+    border: none;
+}
+.panel {
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+}
+ 
+.privacy-dropdown {
+    width: 100px;
+}
+
+.nowhite, .nowhite a {
+  color: white;
+}
+
+.glyphicon{
+	font-size:18px;
+}
+table td {
+    border-top: none !important;
+}
+.table th, .table td { 
+     border-top: none !important; 
+ }
+ 
+ .modal-header {
+    padding:15px;
+    
+    background-color:#E9EAED;
+    
+     border-radius: 5px;
+    
+ }
+ .mymodal{
+ border-radius:20px;
+ }
